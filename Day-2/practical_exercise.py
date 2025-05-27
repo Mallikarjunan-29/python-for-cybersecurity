@@ -1,22 +1,38 @@
 import os
-# source_address=[]
-# dest_address=[]
-# action=[]
-# port=[]
-# connection_type=[]
-# event_date=[]
-# event_time=[]
+source_address=[]
+dest_address=[]
+action=[]
+port=[]
+connection_type=[]
+event_date=[]
+event_time=[]
 file_path=os.path.join("Day-2/logs/log.txt")
+def parse_log(line):
+    try:
+        log=line.strip().split()
+        timestamp=log[0]+" "+log[1]
+        action=log[2]
+        source_address=log[3]
+        dest_address=log[5]
+        connection_type=log[6]
+        port=log[7]
+        return{
+            'timestamp':timestamp,
+            'action':action,
+            'src_IP':source_address,
+            'dest_IP':dest_address,
+            'port':port,
+            'connection':connection_type,
+        }
+    except IndexError:
+        return None
+    
 with open(file_path) as f:
     logs =f.readlines()
-for log in logs:
-    # event_date.append(log.split(" ")[0])
-    # event_time.append(log.split(" ")[1])
-    # action.append(log.split(" ")[2])
-    # source_address.append(log.split(" ")[3])
-    # dest_address.append(log.split(" ")[5])
-    # connection_type.append(log.split(" ")[6])
-    # port.append(log.split(" ")[7])
-    if log.find("DENY")>0:
-        print(log)
+    for log in logs:
+        event= parse_log(log)
+        if event['action']=="DENY":
+            print(f"{event['action']} connection from {event['src_IP']} to {event['dest_IP']} on port {event['port']}")
 
+
+   
