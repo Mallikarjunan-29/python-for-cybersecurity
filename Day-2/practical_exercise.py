@@ -26,13 +26,17 @@ def parse_log(line):
         }
     except IndexError:
         return None
-    
-with open(file_path) as f:
-    logs =f.readlines()
-    for log in logs:
-        event= parse_log(log)
-        if event['action']=="DENY":
-            print(f"{event['action']} connection from {event['src_IP']} to {event['dest_IP']} on port {event['port']}")
+
+def main():    
+    with open(file_path) as f:
+        logs =f.readlines()
+        for log in logs:
+            event= parse_log(log)
+            if event['action']=="DENY":
+                print(f"{event['action']} connection from {event['src_IP']} to {event['dest_IP']} on port {event['port']}")
+
+if __name__=="main":
+    main()
 
 
    
