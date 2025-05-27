@@ -1,11 +1,4 @@
 import os
-source_address=[]
-dest_address=[]
-action=[]
-port=[]
-connection_type=[]
-event_date=[]
-event_time=[]
 file_path=os.path.join("Day-2/logs/log.txt")
 def parse_log(line):
     try:
@@ -35,7 +28,7 @@ def main():
             if event['action']=="DENY":
                 print(f"{event['action']} connection from {event['src_IP']} to {event['dest_IP']} on port {event['port']}")
 
-if __name__=="main":
+if __name__=="__main__":
     main()
 
 
