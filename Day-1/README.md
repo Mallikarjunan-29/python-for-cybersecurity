@@ -1,5 +1,4 @@
-Objectives for the day
-
+✅ Objectives:
 Understand Python syntax and conventions
 
 Learn about variables, data types, and basic operations

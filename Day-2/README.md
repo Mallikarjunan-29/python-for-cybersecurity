@@ -1,7 +1,6 @@
-Objectives for the day
+✅ Objectives:
+Learn if, elif, else, and loops (for, while)
 
-Understand Python syntax and conventions
+Write basic automation logic for repetitive tasks
 
-Learn about variables, data types, and basic operations
-
-Get hands-on with writing your first security-relevant script
+Understand and implement basic exception handling
