@@ -25,7 +25,7 @@ def main():
         logs =f.readlines()
         for log in logs:
             event= parse_log(log)
-            if event['action']=="DENY":
+            if event and event['action']=="DENY":
                 print(f"{event['action']} connection from {event['src_IP']} to {event['dest_IP']} on port {event['port']}")
 
 if __name__=="__main__":
